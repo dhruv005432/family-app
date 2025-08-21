@@ -1,0 +1,48 @@
+<div class="speech-container container py-3 position-relative">
+
+  <!-- Title + Copy final top-right -->
+  <div class="d-flex justify-content-between align-items-start mb-3">
+    <h4 class="mb-0"><i class="fa fa-microphone"></i> Speech to Text</h4>
+    <div>
+      <button class="btn btn-outline-secondary btn-sm me-2" (click)="copy('interim')">
+        <i class="fa fa-copy"></i> Copy Interim
+      </button>
+      <button class="btn btn-outline-secondary btn-sm" (click)="copy('final')">
+        <i class="fa fa-copy"></i> Copy Final
+      </button>
+    </div>
+  </div>
+
+  <!-- Interim textarea (live) -->
+  <label class="form-label">Interim (live):</label>
+  <textarea class="form-control mb-2" rows="4" [(ngModel)]="interimText" readonly></textarea>
+
+  <!-- Quick actions for interim -->
+  <div class="mb-3 d-flex gap-2">
+    <button class="btn btn-success btn-sm" (click)="commitInterimToFinal()">
+      <i class="fa fa-arrow-down"></i> Add Interim to Final
+    </button>
+    <button class="btn btn-outline-primary btn-sm" (click)="copy('interim')">
+      <i class="fa fa-copy"></i> Copy Interim
+    </button>
+  </div>
+
+  <!-- Final text -->
+  <div class="mb-3">
+    <label class="form-label fw-bold">Final Text (persistent):</label>
+    <div class="p-3 border rounded" style="min-height:80px; white-space: pre-wrap;">{{ finalText }}</div>
+  </div>
+
+  <!-- Controls -->
+  <div class="d-flex gap-2">
+    <button class="btn btn-primary" (click)="start()">
+      <i class="fa fa-play"></i> Start
+    </button>
+    <button class="btn btn-danger" (click)="stop()">
+      <i class="fa fa-stop"></i> Stop
+    </button>
+    <button class="btn btn-warning" (click)="clearText()">
+      <i class="fa fa-trash"></i> Clear
+    </button>
+  </div>
+</div>

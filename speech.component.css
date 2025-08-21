@@ -1,0 +1,4 @@
+.speech-container { max-width: 900px; margin: 0 auto; }
+
+.snackbar-success { background-color: #198754 !important; color: #fff !important; }
+.snackbar-error   { background-color: #dc3545 !important; color: #fff !important; }

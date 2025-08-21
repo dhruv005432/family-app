@@ -1,0 +1,14 @@
+.success-snackbar {
+  background-color: #28a745 !important; /* green */
+  color: #fff !important;
+}
+
+.error-snackbar {
+  background-color: #dc3545 !important; /* red */
+  color: #fff !important;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+}

@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">
+    <i class="fas fa-envelope"></i> Contact Us
+  </h2>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="p-4 shadow rounded bg-light">
+
+    <!-- Name -->
+    <div class="mb-3">
+      <label for="name" class="form-label">
+        <i class="fas fa-user"></i> Name
+      </label>
+      <input type="text" id="name" class="form-control" formControlName="name">
+      <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="text-danger">
+        Name is required (min 3 chars).
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">
+        <i class="fas fa-envelope-open"></i> Email
+      </label>
+      <input type="email" id="email" class="form-control" formControlName="email">
+      <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="text-danger">
+        Enter a valid email.
+      </div>
+    </div>
+
+    <!-- Message -->
+    <div class="mb-3">
+      <label for="message" class="form-label">
+        <i class="fas fa-comment-dots"></i> Message
+      </label>
+      <textarea id="message" rows="4" class="form-control" formControlName="message"></textarea>
+      <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="text-danger">
+        Message is required (min 10 chars).
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary w-100">
+      <i class="fas fa-paper-plane"></i> Send Message
+    </button>
+  </form>
+</div>

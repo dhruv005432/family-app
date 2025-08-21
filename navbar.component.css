@@ -1,0 +1,13 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center; /* centers the title */
+}
+
+.navbar-title {
+  margin: 0 auto;
+}
