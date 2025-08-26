@@ -1,0 +1,48 @@
+<div class="container py-4">
+  <!-- 🔍 Search bar -->
+  <div class="d-flex align-items-center gap-2 mb-3">
+    <mat-form-field appearance="outline" class="flex-grow-1">
+      <mat-label>Search…</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (keyup.enter)="onSearch()" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="onSearch()">
+      <i class="fa fa-search me-1"></i> Search
+    </button>
+
+    <button mat-raised-button color="warn" (click)="clearAll()">
+      <i class="fa fa-trash me-1"></i> Clear
+    </button>
+  </div>
+
+  <!-- 🎤 Voice Text Box -->
+  <mat-card class="shadow rounded-3">
+    <mat-card-header>
+      <mat-card-title class="d-flex align-items-center gap-2">
+        <i class="fa fa-microphone text-danger"></i> Voice to Text
+      </mat-card-title>
+      <mat-card-subtitle>No symbols • Duplicate guard • Persistent</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>You can voice to text convert…</mat-label>
+        <textarea matInput rows="10" readonly>{{ textStore }}</textarea>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions class="d-flex flex-wrap gap-2">
+      <button mat-stroked-button color="primary" (click)="copyText()">
+        <i class="fa fa-copy me-1"></i> Copy
+      </button>
+
+      <button mat-stroked-button color="accent" (click)="startVoice()" [disabled]="listening">
+        <i class="fa fa-play me-1"></i> Start
+      </button>
+
+      <button mat-stroked-button color="warn" (click)="stopVoice()" [disabled]="!listening">
+        <i class="fa fa-stop me-1"></i> Stop
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
